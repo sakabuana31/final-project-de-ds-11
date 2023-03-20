@@ -1,0 +1,36 @@
+[2023-03-20 16:38:28,010] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.5.read_and_load_checkin manual__2023-03-20T16:20:18.485887+00:00 [queued]>
+[2023-03-20 16:38:28,048] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.5.read_and_load_checkin manual__2023-03-20T16:20:18.485887+00:00 [queued]>
+[2023-03-20 16:38:28,049] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 16:38:28,050] {taskinstance.py:1239} INFO - Starting attempt 9 of 10
+[2023-03-20 16:38:28,051] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 16:38:28,096] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): read_and_load_checkin> on 2023-03-20 16:20:18.485887+00:00
+[2023-03-20 16:38:28,107] {standard_task_runner.py:52} INFO - Started process 14951 to run task
+[2023-03-20 16:38:28,119] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.5', 'read_and_load_checkin', 'manual__2023-03-20T16:20:18.485887+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmp0cbgw55b', '--error-file', '/tmp/tmpx51e1js3']
+[2023-03-20 16:38:28,122] {standard_task_runner.py:77} INFO - Job 124: Subtask read_and_load_checkin
+[2023-03-20 16:38:28,448] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.5.read_and_load_checkin manual__2023-03-20T16:20:18.485887+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 16:38:28,779] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.5
+AIRFLOW_CTX_TASK_ID=read_and_load_checkin
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T16:20:18.485887+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T16:20:18.485887+00:00
+[2023-03-20 16:38:28,871] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 16:38:28,957] {dbapi.py:225} INFO - Running statement: 
+            CREATE TEMPORARY TABLE temp_checkin (
+                business_id text,
+                date_values date PRIMARY KEY
+            );
+
+            COPY temp_checkin FROM '/opt/***/data/output-csv/checkin_restaurant1.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO checkin (business_id, date_values)
+            SELECT DISTINCT ON (date_values) business_id, date_values
+            FROM temp_checkin
+            ORDER BY date_values
+            ON CONFLICT (date_values) DO NOTHING;
+        , parameters: None
+[2023-03-20 16:38:29,004] {dbapi.py:233} INFO - Rows affected: 4389
+[2023-03-20 16:38:29,107] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.5, task_id=read_and_load_checkin, execution_date=20230320T162018, start_date=20230320T163828, end_date=20230320T163829
+[2023-03-20 16:38:29,168] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 16:38:29,370] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,457 @@
+[2023-03-19T06:21:16.225+0000] {processor.py:153} INFO - Started process (PID=169) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:21:16.227+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:21:16.233+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:21:16.232+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:21:16.262+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:21:16.259+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:21:16.263+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:21:16.299+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.083 seconds
+[2023-03-19T06:21:46.857+0000] {processor.py:153} INFO - Started process (PID=197) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:21:46.859+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:21:46.860+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:21:46.860+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:21:46.873+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:21:46.871+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:21:46.875+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:21:46.906+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.056 seconds
+[2023-03-19T06:22:17.466+0000] {processor.py:153} INFO - Started process (PID=224) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:22:17.468+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:22:17.469+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:22:17.469+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:22:17.477+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:22:17.475+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:22:17.478+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:22:17.495+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.032 seconds
+[2023-03-19T06:22:48.024+0000] {processor.py:153} INFO - Started process (PID=251) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:22:48.026+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:22:48.027+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:22:48.027+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:22:48.041+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:22:48.038+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:22:48.042+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:22:48.063+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.046 seconds
+[2023-03-19T06:23:18.610+0000] {processor.py:153} INFO - Started process (PID=278) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:23:18.612+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:23:18.614+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:23:18.614+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:23:18.627+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:23:18.624+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:23:18.628+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:23:18.648+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.044 seconds
+[2023-03-19T06:23:49.118+0000] {processor.py:153} INFO - Started process (PID=305) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:23:49.120+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:23:49.121+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:23:49.121+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:23:49.132+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:23:49.130+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:23:49.133+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:23:49.154+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.041 seconds
+[2023-03-19T06:24:19.731+0000] {processor.py:153} INFO - Started process (PID=332) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:24:19.735+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:24:19.737+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:24:19.737+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:24:19.755+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:24:19.752+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:24:19.756+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:24:19.790+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.070 seconds
+[2023-03-19T06:40:14.331+0000] {processor.py:153} INFO - Started process (PID=359) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:40:14.333+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:40:14.334+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:40:14.333+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:40:14.345+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:40:14.343+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:40:14.347+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:40:14.384+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.058 seconds
+[2023-03-19T06:40:44.958+0000] {processor.py:153} INFO - Started process (PID=386) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:40:44.960+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:40:44.962+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:40:44.962+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:40:44.982+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:40:44.979+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:40:44.984+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:40:45.006+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.055 seconds
+[2023-03-19T06:41:15.597+0000] {processor.py:153} INFO - Started process (PID=413) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:41:15.599+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:41:15.600+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:41:15.600+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:41:15.611+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:41:15.610+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:41:15.612+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:41:15.632+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.041 seconds
+[2023-03-19T06:41:46.260+0000] {processor.py:153} INFO - Started process (PID=440) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:41:46.262+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:41:46.265+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:41:46.265+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:41:46.283+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:41:46.280+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:41:46.284+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:41:46.311+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.063 seconds
+[2023-03-19T06:42:16.856+0000] {processor.py:153} INFO - Started process (PID=467) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:42:16.858+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:42:16.860+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:42:16.859+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:42:16.873+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:42:16.871+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:42:16.874+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:42:16.896+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.047 seconds
+[2023-03-19T06:42:47.418+0000] {processor.py:153} INFO - Started process (PID=494) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:42:47.420+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:42:47.422+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:42:47.422+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:42:47.442+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:42:47.438+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 3, in <module>
+    from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/deprecation_tools.py", line 36, in getattr_with_deprecation
+    return getattr(importlib.import_module(new_module), new_class_name)
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2023-03-19T06:42:47.443+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:42:47.469+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.057 seconds
+[2023-03-19T06:43:03.842+0000] {processor.py:153} INFO - Started process (PID=514) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:43:03.843+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:43:03.845+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:43:03.845+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:43:03.860+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:43:03.859+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 22, in <module>
+    spark_submit = SparkSubmitOperator(
+NameError: name 'SparkSubmitOperator' is not defined
+[2023-03-19T06:43:03.861+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:43:03.880+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.043 seconds
+[2023-03-19T06:43:34.397+0000] {processor.py:153} INFO - Started process (PID=541) to work on /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:43:34.399+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/avg_product_price.py for tasks to queue
+[2023-03-19T06:43:34.400+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:43:34.400+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:43:34.419+0000] {logging_mixin.py:137} INFO - [2023-03-19T06:43:34.417+0000] {dagbag.py:341} ERROR - Failed to import: /opt/airflow/dags/avg_product_price.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 337, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/avg_product_price.py", line 22, in <module>
+    spark_submit = SparkSubmitOperator(
+NameError: name 'SparkSubmitOperator' is not defined
+[2023-03-19T06:43:34.421+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/avg_product_price.py
+[2023-03-19T06:43:34.445+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/avg_product_price.py took 0.054 seconds

@@ -1,0 +1,96 @@
+[2023-03-20 14:49:50,056] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.1.read_and_load_business manual__2023-03-20T14:48:20.614346+00:00 [queued]>
+[2023-03-20 14:49:50,092] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.1.read_and_load_business manual__2023-03-20T14:48:20.614346+00:00 [queued]>
+[2023-03-20 14:49:50,093] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 14:49:50,094] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 14:49:50,094] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 14:49:50,132] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): read_and_load_business> on 2023-03-20 14:48:20.614346+00:00
+[2023-03-20 14:49:50,137] {standard_task_runner.py:52} INFO - Started process 9965 to run task
+[2023-03-20 14:49:50,143] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.1', 'read_and_load_business', 'manual__2023-03-20T14:48:20.614346+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmpvqcg4a54', '--error-file', '/tmp/tmplf2lub0a']
+[2023-03-20 14:49:50,146] {standard_task_runner.py:77} INFO - Job 51: Subtask read_and_load_business
+[2023-03-20 14:49:50,448] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.1.read_and_load_business manual__2023-03-20T14:48:20.614346+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 14:49:50,771] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.1
+AIRFLOW_CTX_TASK_ID=read_and_load_business
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T14:48:20.614346+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T14:48:20.614346+00:00
+[2023-03-20 14:49:50,849] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 14:49:50,924] {dbapi.py:225} INFO - Running statement: 
+            CREATE TEMPORARY TABLE temp_business (
+                business_id text PRIMARY KEY,
+                name text,
+                address text,
+                city text,
+                state text,
+                postal_code text,
+                latitude float,
+                longitude float,
+                stars float,
+                review_count int,
+                is_open int,
+                attributes text,
+                categories text,
+                hours text
+            );
+
+            COPY temp_business FROM '/opt/***/data/output-csv/business_restaurant.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO business (business_id, name, address, city, state, postal_code, latitude, stars, review_count, is_open, attributes, categories, hours)
+            SELECT business_id, name, address, city, state, postal_code, latitude, stars, review_count, is_open, attributes, categories, hours
+            FROM temp_business
+            ON CONFLICT (date) DO NOTHING;
+        , parameters: None
+[2023-03-20 14:49:51,711] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 69, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 205, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 229, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "date" does not exist
+LINE 23:             ON CONFLICT (date) DO NOTHING;
+                                 ^
+
+[2023-03-20 14:49:51,824] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=to_posgrest_v4.1, task_id=read_and_load_business, execution_date=20230320T144820, start_date=20230320T144950, end_date=20230320T144951
+[2023-03-20 14:49:51,871] {standard_task_runner.py:92} ERROR - Failed to execute job 51 for task read_and_load_business
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 69, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 205, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 229, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "date" does not exist
+LINE 23:             ON CONFLICT (date) DO NOTHING;
+                                 ^
+
+[2023-03-20 14:49:51,928] {local_task_job.py:154} INFO - Task exited with return code 1
+[2023-03-20 14:49:52,162] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,53 @@
+[2023-03-20T02:00:53.494+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: to_posgrest_v1.create_postgres_table manual__2023-03-20T01:42:39.210654+00:00 [queued]>
+[2023-03-20T02:00:53.499+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: to_posgrest_v1.create_postgres_table manual__2023-03-20T01:42:39.210654+00:00 [queued]>
+[2023-03-20T02:00:53.500+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20T02:00:53.500+0000] {taskinstance.py:1283} INFO - Starting attempt 4 of 9
+[2023-03-20T02:00:53.501+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20T02:00:53.509+0000] {taskinstance.py:1303} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-03-20 01:42:39.210654+00:00
+[2023-03-20T02:00:53.512+0000] {standard_task_runner.py:55} INFO - Started process 661 to run task
+[2023-03-20T02:00:53.515+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v1', 'create_postgres_table', 'manual__2023-03-20T01:42:39.210654+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmp20g__y64']
+[2023-03-20T02:00:53.517+0000] {standard_task_runner.py:83} INFO - Job 30: Subtask create_postgres_table
+[2023-03-20T02:00:53.563+0000] {task_command.py:388} INFO - Running <TaskInstance: to_posgrest_v1.create_postgres_table manual__2023-03-20T01:42:39.210654+00:00 [running]> on host 5443d245a01a
+[2023-03-20T02:00:53.608+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v1
+AIRFLOW_CTX_TASK_ID=create_postgres_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T01:42:39.210654+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T01:42:39.210654+00:00
+[2023-03-20T02:00:53.608+0000] {sql.py:254} INFO - Executing: 
+            create table if not exists temperature (
+                date DATE PRIMARY KEY,
+                min DECIMAL(5, 2),
+                max DECIMAL(5, 2),
+                normal_min DECIMAL(5, 2),
+                normal_max DECIMAL(5, 2),
+                mean DECIMAL(5, 2),
+                status_temp int64
+            )
+        
+[2023-03-20T02:00:53.616+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-03-20T02:00:53.719+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-03-20T02:00:56.859+0000] {taskinstance.py:1775} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 144, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+[2023-03-20T02:00:56.896+0000] {taskinstance.py:1326} INFO - Marking task as UP_FOR_RETRY. dag_id=to_posgrest_v1, task_id=create_postgres_table, execution_date=20230320T014239, start_date=20230320T020053, end_date=20230320T020056
+[2023-03-20T02:00:56.913+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 30 for task create_postgres_table (server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+; 661)
+[2023-03-20T02:00:56.961+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-03-20T02:00:56.984+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,5 @@
+wheel
+setuptools
+my_utils
+pandas
+psycopg2-binary

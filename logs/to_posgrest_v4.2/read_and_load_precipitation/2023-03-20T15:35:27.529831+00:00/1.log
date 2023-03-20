@@ -1,0 +1,37 @@
+[2023-03-20 15:35:36,994] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.2.read_and_load_precipitation manual__2023-03-20T15:35:27.529831+00:00 [queued]>
+[2023-03-20 15:35:37,033] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.2.read_and_load_precipitation manual__2023-03-20T15:35:27.529831+00:00 [queued]>
+[2023-03-20 15:35:37,034] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 15:35:37,036] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 15:35:37,037] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 15:35:37,076] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): read_and_load_precipitation> on 2023-03-20 15:35:27.529831+00:00
+[2023-03-20 15:35:37,081] {standard_task_runner.py:52} INFO - Started process 11354 to run task
+[2023-03-20 15:35:37,089] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.2', 'read_and_load_precipitation', 'manual__2023-03-20T15:35:27.529831+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmpmcvyjdo5', '--error-file', '/tmp/tmp0g68ob1i']
+[2023-03-20 15:35:37,091] {standard_task_runner.py:77} INFO - Job 56: Subtask read_and_load_precipitation
+[2023-03-20 15:35:37,394] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.2.read_and_load_precipitation manual__2023-03-20T15:35:27.529831+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 15:35:37,776] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.2
+AIRFLOW_CTX_TASK_ID=read_and_load_precipitation
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T15:35:27.529831+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T15:35:27.529831+00:00
+[2023-03-20 15:35:37,872] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 15:35:37,966] {dbapi.py:225} INFO - Running statement: 
+            CREATE TEMPORARY TABLE temp_precipitation (
+                date DATE PRIMARY KEY,
+                precipitation DECIMAL(5, 2),
+                precipitation_normal DECIMAL(5, 2),
+                status_preci int
+            );
+
+            COPY temp_precipitation FROM '/opt/***/data/output-csv/dataclean-precipitation-lasvegas.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO precipitation (date, precipitation, precipitation_normal, status_preci)
+            SELECT date, precipitation, precipitation_normal, status_preci
+            FROM temp_precipitation
+            ON CONFLICT (date) DO NOTHING;
+        , parameters: None
+[2023-03-20 15:35:38,033] {dbapi.py:233} INFO - Rows affected: 0
+[2023-03-20 15:35:38,137] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.2, task_id=read_and_load_precipitation, execution_date=20230320T153527, start_date=20230320T153536, end_date=20230320T153538
+[2023-03-20 15:35:38,199] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 15:35:38,451] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

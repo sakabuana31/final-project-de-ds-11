@@ -1,0 +1,44 @@
+[2023-03-20 15:58:14,490] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.3.read_and_load_user manual__2023-03-20T15:57:53.109475+00:00 [queued]>
+[2023-03-20 15:58:14,527] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.3.read_and_load_user manual__2023-03-20T15:57:53.109475+00:00 [queued]>
+[2023-03-20 15:58:14,528] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 15:58:14,529] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 15:58:14,530] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 15:58:14,567] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): read_and_load_user> on 2023-03-20 15:57:53.109475+00:00
+[2023-03-20 15:58:14,573] {standard_task_runner.py:52} INFO - Started process 12644 to run task
+[2023-03-20 15:58:14,580] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.3', 'read_and_load_user', 'manual__2023-03-20T15:57:53.109475+00:00', '--job-id', '78', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmpv4jqu8sf', '--error-file', '/tmp/tmp0neqmn5z']
+[2023-03-20 15:58:14,583] {standard_task_runner.py:77} INFO - Job 78: Subtask read_and_load_user
+[2023-03-20 15:58:14,878] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.3.read_and_load_user manual__2023-03-20T15:57:53.109475+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 15:58:15,250] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.3
+AIRFLOW_CTX_TASK_ID=read_and_load_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T15:57:53.109475+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T15:57:53.109475+00:00
+[2023-03-20 15:58:15,344] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 15:58:15,427] {dbapi.py:225} INFO - Running statement: 
+            CREATE TEMPORARY TABLE temp_user1 (
+                user_id text PRIMARY KEY,
+                name text,
+                review_count text,
+                useful int,
+                funny int,
+                cool int,
+                elite text,
+                friends text,
+                fans text,
+                average_stars float,
+                yelping_since_values date
+            );
+
+            COPY temp_user1 FROM '/opt/***/data/output-csv/user_restaurant.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO user1 (user_id, name, review_count, useful, funny, cool, elite, friends, fans, average_stars, yelping_since_values)
+            SELECT user_id, name, review_count, useful, funny, cool, elite, friends, fans, average_stars, yelping_since_values
+            FROM temp_user1
+            ON CONFLICT (user_id) DO NOTHING;
+        , parameters: None
+[2023-03-20 15:58:16,213] {dbapi.py:233} INFO - Rows affected: 87897
+[2023-03-20 15:58:16,344] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.3, task_id=read_and_load_user, execution_date=20230320T155753, start_date=20230320T155814, end_date=20230320T155816
+[2023-03-20 15:58:16,424] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 15:58:16,623] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
