@@ -5983,3 +5983,66 @@
 [2023-03-22 13:15:52,341] {logging_mixin.py:109} INFO - [2023-03-22 13:15:52,341] {dag.py:2396} INFO - Sync 1 DAGs
 [2023-03-22 13:15:52,388] {logging_mixin.py:109} INFO - [2023-03-22 13:15:52,388] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
 [2023-03-22 13:15:52,408] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.238 seconds
+[2023-03-22 13:16:23,229] {processor.py:163} INFO - Started process (PID=5800) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:16:23,233] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:16:23,236] {logging_mixin.py:109} INFO - [2023-03-22 13:16:23,235] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:16:23,365] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:16:23,395] {logging_mixin.py:109} INFO - [2023-03-22 13:16:23,394] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:16:23,439] {logging_mixin.py:109} INFO - [2023-03-22 13:16:23,439] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:16:23,461] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.243 seconds
+[2023-03-22 13:16:53,721] {processor.py:163} INFO - Started process (PID=5832) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:16:53,726] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:16:53,729] {logging_mixin.py:109} INFO - [2023-03-22 13:16:53,729] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:16:53,866] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:16:53,893] {logging_mixin.py:109} INFO - [2023-03-22 13:16:53,893] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:16:53,939] {logging_mixin.py:109} INFO - [2023-03-22 13:16:53,938] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:16:53,958] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.248 seconds
+[2023-03-22 13:17:24,215] {processor.py:163} INFO - Started process (PID=5864) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:17:24,220] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:17:24,223] {logging_mixin.py:109} INFO - [2023-03-22 13:17:24,222] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:17:24,375] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:17:24,407] {logging_mixin.py:109} INFO - [2023-03-22 13:17:24,406] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:17:24,458] {logging_mixin.py:109} INFO - [2023-03-22 13:17:24,458] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:17:24,478] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.275 seconds
+[2023-03-22 13:17:55,284] {processor.py:163} INFO - Started process (PID=5896) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:17:55,290] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:17:55,292] {logging_mixin.py:109} INFO - [2023-03-22 13:17:55,292] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:17:55,419] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:17:55,447] {logging_mixin.py:109} INFO - [2023-03-22 13:17:55,447] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:17:55,493] {logging_mixin.py:109} INFO - [2023-03-22 13:17:55,493] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:17:55,512] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.240 seconds
+[2023-03-22 13:18:25,668] {processor.py:163} INFO - Started process (PID=5928) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:18:25,672] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:18:25,674] {logging_mixin.py:109} INFO - [2023-03-22 13:18:25,674] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:18:25,801] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:18:25,831] {logging_mixin.py:109} INFO - [2023-03-22 13:18:25,831] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:18:25,877] {logging_mixin.py:109} INFO - [2023-03-22 13:18:25,877] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:18:25,897] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.238 seconds
+[2023-03-22 13:18:56,173] {processor.py:163} INFO - Started process (PID=5960) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:18:56,178] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:18:56,180] {logging_mixin.py:109} INFO - [2023-03-22 13:18:56,180] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:18:56,305] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:18:56,334] {logging_mixin.py:109} INFO - [2023-03-22 13:18:56,333] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:18:56,379] {logging_mixin.py:109} INFO - [2023-03-22 13:18:56,379] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:18:56,398] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.235 seconds
+[2023-03-22 13:19:26,620] {processor.py:163} INFO - Started process (PID=5992) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:19:26,624] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:19:26,627] {logging_mixin.py:109} INFO - [2023-03-22 13:19:26,626] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:19:26,758] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:19:26,785] {logging_mixin.py:109} INFO - [2023-03-22 13:19:26,785] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:19:26,831] {logging_mixin.py:109} INFO - [2023-03-22 13:19:26,830] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:19:26,849] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.239 seconds
+[2023-03-22 13:19:57,186] {processor.py:163} INFO - Started process (PID=6024) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:19:57,194] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:19:57,197] {logging_mixin.py:109} INFO - [2023-03-22 13:19:57,196] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:19:57,373] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:19:57,406] {logging_mixin.py:109} INFO - [2023-03-22 13:19:57,406] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:19:57,457] {logging_mixin.py:109} INFO - [2023-03-22 13:19:57,456] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:19:57,477] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.312 seconds
+[2023-03-22 13:23:08,322] {processor.py:163} INFO - Started process (PID=6056) to work on /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:23:08,325] {processor.py:642} INFO - Processing file /opt/airflow/dags/querry_posgresql.py for tasks to queue
+[2023-03-22 13:23:08,327] {logging_mixin.py:109} INFO - [2023-03-22 13:23:08,327] {dagbag.py:500} INFO - Filling up the DagBag from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:23:08,598] {processor.py:654} INFO - DAG(s) dict_keys(['querry_postgres_v1.6']) retrieved from /opt/airflow/dags/querry_posgresql.py
+[2023-03-22 13:23:08,775] {logging_mixin.py:109} INFO - [2023-03-22 13:23:08,774] {dag.py:2396} INFO - Sync 1 DAGs
+[2023-03-22 13:23:08,888] {logging_mixin.py:109} INFO - [2023-03-22 13:23:08,887] {dag.py:2935} INFO - Setting next_dagrun for querry_postgres_v1.6 to None
+[2023-03-22 13:23:08,922] {processor.py:171} INFO - Processing /opt/airflow/dags/querry_posgresql.py took 0.605 seconds
