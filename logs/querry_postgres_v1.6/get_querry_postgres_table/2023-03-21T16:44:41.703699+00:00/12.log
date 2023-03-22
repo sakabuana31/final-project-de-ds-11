@@ -1,0 +1,95 @@
+[2023-03-22 12:03:09,596] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: querry_postgres_v1.6.get_querry_postgres_table manual__2023-03-21T16:44:41.703699+00:00 [queued]>
+[2023-03-22 12:03:09,632] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: querry_postgres_v1.6.get_querry_postgres_table manual__2023-03-21T16:44:41.703699+00:00 [queued]>
+[2023-03-22 12:03:09,633] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22 12:03:09,634] {taskinstance.py:1239} INFO - Starting attempt 12 of 13
+[2023-03-22 12:03:09,635] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22 12:03:09,672] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): get_querry_postgres_table> on 2023-03-21 16:44:41.703699+00:00
+[2023-03-22 12:03:09,678] {standard_task_runner.py:52} INFO - Started process 1127 to run task
+[2023-03-22 12:03:09,685] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'querry_postgres_v1.6', 'get_querry_postgres_table', 'manual__2023-03-21T16:44:41.703699+00:00', '--job-id', '330', '--raw', '--subdir', 'DAGS_FOLDER/querry_posgresql.py', '--cfg-path', '/tmp/tmpsetap5zq', '--error-file', '/tmp/tmpmotlsure']
+[2023-03-22 12:03:09,688] {standard_task_runner.py:77} INFO - Job 330: Subtask get_querry_postgres_table
+[2023-03-22 12:03:10,036] {logging_mixin.py:109} INFO - Running <TaskInstance: querry_postgres_v1.6.get_querry_postgres_table manual__2023-03-21T16:44:41.703699+00:00 [running]> on host 6109e8ed579f
+[2023-03-22 12:03:10,390] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=querry_postgres_v1.6
+AIRFLOW_CTX_TASK_ID=get_querry_postgres_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T16:44:41.703699+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T16:44:41.703699+00:00
+[2023-03-22 12:03:10,473] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-22 12:03:10,583] {dbapi.py:225} INFO - Running statement: 
+            INSERT INTO serving.serving_table_review (
+                date, mean_temp, status_temp, precipitation, status_preci, business_id, business_name, stars, date_values
+            )
+            SELECT 
+                dim_review.date_values,
+                fact_temperature.mean,
+                fact_temperature.status_temp,
+                fact_precipitation.precipitation,
+                fact_precipitation.status_preci, 
+                review.business_id, 
+                fact_business.name, 
+                dim_review.stars, 
+                dim_review.date_values
+            FROM 
+                review
+                LEFT JOIN precipitation ON (review.date_values = precipitation.date)
+                LEFT JOIN temperature ON (review.date_values = temperature.date)
+                LEFT JOIN business ON (review.business_id = business.business_id)
+            ORDER BY 
+                dim_serving.date_values;
+
+        , parameters: None
+[2023-03-22 12:03:10,590] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 69, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 205, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 229, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "review" does not exist
+LINE 16:                 review
+                         ^
+
+[2023-03-22 12:03:10,690] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=querry_postgres_v1.6, task_id=get_querry_postgres_table, execution_date=20230321T164441, start_date=20230322T120309, end_date=20230322T120310
+[2023-03-22 12:03:10,730] {standard_task_runner.py:92} ERROR - Failed to execute job 330 for task get_querry_postgres_table
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 69, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 205, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 229, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "review" does not exist
+LINE 16:                 review
+                         ^
+
+[2023-03-22 12:03:10,781] {local_task_job.py:154} INFO - Task exited with return code 1
+[2023-03-22 12:03:10,995] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

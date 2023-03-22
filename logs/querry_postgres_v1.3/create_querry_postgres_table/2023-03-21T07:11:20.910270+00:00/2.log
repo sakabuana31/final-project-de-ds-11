@@ -1,0 +1,76 @@
+[2023-03-21 07:16:31,092] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: querry_postgres_v1.3.create_querry_postgres_table manual__2023-03-21T07:11:20.910270+00:00 [queued]>
+[2023-03-21 07:16:31,128] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: querry_postgres_v1.3.create_querry_postgres_table manual__2023-03-21T07:11:20.910270+00:00 [queued]>
+[2023-03-21 07:16:31,129] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 07:16:31,130] {taskinstance.py:1239} INFO - Starting attempt 2 of 2
+[2023-03-21 07:16:31,131] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 07:16:31,177] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): create_querry_postgres_table> on 2023-03-21 07:11:20.910270+00:00
+[2023-03-21 07:16:31,183] {standard_task_runner.py:52} INFO - Started process 34075 to run task
+[2023-03-21 07:16:31,191] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'querry_postgres_v1.3', 'create_querry_postgres_table', 'manual__2023-03-21T07:11:20.910270+00:00', '--job-id', '258', '--raw', '--subdir', 'DAGS_FOLDER/querry_posgresql.py', '--cfg-path', '/tmp/tmp3r3ujsla', '--error-file', '/tmp/tmpq17ojhjg']
+[2023-03-21 07:16:31,194] {standard_task_runner.py:77} INFO - Job 258: Subtask create_querry_postgres_table
+[2023-03-21 07:16:31,495] {logging_mixin.py:109} INFO - Running <TaskInstance: querry_postgres_v1.3.create_querry_postgres_table manual__2023-03-21T07:11:20.910270+00:00 [running]> on host 0b4cdb459521
+[2023-03-21 07:16:31,840] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=querry_postgres_v1.3
+AIRFLOW_CTX_TASK_ID=create_querry_postgres_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T07:11:20.910270+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T07:11:20.910270+00:00
+[2023-03-21 07:16:31,920] {base.py:79} INFO - Using connection to: id: postgres_localhost_serving. Host: host.docker.interal, Port: 5432, Schema: serving, Login: ***, Password: ***, extra: {}
+[2023-03-21 07:16:38,085] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 69, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 198, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 115, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+[2023-03-21 07:16:38,197] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=querry_postgres_v1.3, task_id=create_querry_postgres_table, execution_date=20230321T071120, start_date=20230321T071631, end_date=20230321T071638
+[2023-03-21 07:16:38,242] {standard_task_runner.py:92} ERROR - Failed to execute job 258 for task create_querry_postgres_table
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 69, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 198, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 115, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+[2023-03-21 07:16:38,272] {local_task_job.py:154} INFO - Task exited with return code 1
+[2023-03-21 07:16:38,499] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

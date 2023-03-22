@@ -1,0 +1,31 @@
+[2023-03-20 18:41:06,499] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.9.create_postgres_table_tip manual__2023-03-20T18:40:35.699367+00:00 [queued]>
+[2023-03-20 18:41:06,537] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.9.create_postgres_table_tip manual__2023-03-20T18:40:35.699367+00:00 [queued]>
+[2023-03-20 18:41:06,538] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 18:41:06,538] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 18:41:06,539] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 18:41:06,577] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): create_postgres_table_tip> on 2023-03-20 18:40:35.699367+00:00
+[2023-03-20 18:41:06,583] {standard_task_runner.py:52} INFO - Started process 21786 to run task
+[2023-03-20 18:41:06,591] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.9', 'create_postgres_table_tip', 'manual__2023-03-20T18:40:35.699367+00:00', '--job-id', '208', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmpa36s9u22', '--error-file', '/tmp/tmpnzap6hyz']
+[2023-03-20 18:41:06,593] {standard_task_runner.py:77} INFO - Job 208: Subtask create_postgres_table_tip
+[2023-03-20 18:41:06,919] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.9.create_postgres_table_tip manual__2023-03-20T18:40:35.699367+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 18:41:07,252] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.9
+AIRFLOW_CTX_TASK_ID=create_postgres_table_tip
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T18:40:35.699367+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T18:40:35.699367+00:00
+[2023-03-20 18:41:07,332] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 18:41:07,412] {dbapi.py:225} INFO - Running statement: 
+            create table if not exists tip (
+                user_id text not null PRIMARY KEY,
+                business_id text not null,
+                text text not null,
+                compliment_count int not null,
+                date_values date not null
+            ) 
+        , parameters: None
+[2023-03-20 18:41:07,510] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.9, task_id=create_postgres_table_tip, execution_date=20230320T184035, start_date=20230320T184106, end_date=20230320T184107
+[2023-03-20 18:41:07,557] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 18:41:07,780] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

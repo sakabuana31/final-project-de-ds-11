@@ -1,0 +1,35 @@
+[2023-03-21 17:25:18,533] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: querry_postgres_v1.6.create_querry_postgres_table manual__2023-03-21T16:44:41.703699+00:00 [queued]>
+[2023-03-21 17:25:18,570] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: querry_postgres_v1.6.create_querry_postgres_table manual__2023-03-21T16:44:41.703699+00:00 [queued]>
+[2023-03-21 17:25:18,571] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 17:25:18,572] {taskinstance.py:1239} INFO - Starting attempt 2 of 3
+[2023-03-21 17:25:18,573] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 17:25:18,612] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): create_querry_postgres_table> on 2023-03-21 16:44:41.703699+00:00
+[2023-03-21 17:25:18,618] {standard_task_runner.py:52} INFO - Started process 6041 to run task
+[2023-03-21 17:25:18,626] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'querry_postgres_v1.6', 'create_querry_postgres_table', 'manual__2023-03-21T16:44:41.703699+00:00', '--job-id', '313', '--raw', '--subdir', 'DAGS_FOLDER/querry_posgresql.py', '--cfg-path', '/tmp/tmpvq20crwl', '--error-file', '/tmp/tmp81uscx93']
+[2023-03-21 17:25:18,629] {standard_task_runner.py:77} INFO - Job 313: Subtask create_querry_postgres_table
+[2023-03-21 17:25:18,940] {logging_mixin.py:109} INFO - Running <TaskInstance: querry_postgres_v1.6.create_querry_postgres_table manual__2023-03-21T16:44:41.703699+00:00 [running]> on host 032c4ac21f36
+[2023-03-21 17:25:19,286] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=querry_postgres_v1.6
+AIRFLOW_CTX_TASK_ID=create_querry_postgres_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T16:44:41.703699+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T16:44:41.703699+00:00
+[2023-03-21 17:25:19,367] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-21 17:25:19,450] {dbapi.py:225} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS serving.serving_table_review (
+            date DATE,
+            mean_temp DECIMAL(5, 2),
+            status_temp INT,
+            precipitation DECIMAL(5, 2),
+            status_preci INT,
+            business_id TEXT,
+            business_name TEXT,
+            stars INT,
+            date_values DATE
+        );
+        , parameters: None
+[2023-03-21 17:25:19,552] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=querry_postgres_v1.6, task_id=create_querry_postgres_table, execution_date=20230321T164441, start_date=20230321T172518, end_date=20230321T172519
+[2023-03-21 17:25:19,632] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-21 17:25:19,839] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

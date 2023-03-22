@@ -8,3 +8,7 @@ how to run
 5. create connection to postgres
 6. open dbeaver and create connection to postgres
 7. runs dags
+
+Ide analisa
+1. rata-rata stars di business_
+2. rata-rata stars ketika normal & bad weather

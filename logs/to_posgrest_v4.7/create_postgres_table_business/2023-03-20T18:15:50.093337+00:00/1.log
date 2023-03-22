@@ -1,0 +1,42 @@
+[2023-03-20 18:16:03,064] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.7.create_postgres_table_business manual__2023-03-20T18:15:50.093337+00:00 [queued]>
+[2023-03-20 18:16:03,100] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.7.create_postgres_table_business manual__2023-03-20T18:15:50.093337+00:00 [queued]>
+[2023-03-20 18:16:03,101] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 18:16:03,101] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 18:16:03,102] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 18:16:03,163] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): create_postgres_table_business> on 2023-03-20 18:15:50.093337+00:00
+[2023-03-20 18:16:03,171] {standard_task_runner.py:52} INFO - Started process 20246 to run task
+[2023-03-20 18:16:03,179] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.7', 'create_postgres_table_business', 'manual__2023-03-20T18:15:50.093337+00:00', '--job-id', '160', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmpzzrzxq0b', '--error-file', '/tmp/tmpmooeh7ge']
+[2023-03-20 18:16:03,181] {standard_task_runner.py:77} INFO - Job 160: Subtask create_postgres_table_business
+[2023-03-20 18:16:03,479] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.7.create_postgres_table_business manual__2023-03-20T18:15:50.093337+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 18:16:03,791] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.7
+AIRFLOW_CTX_TASK_ID=create_postgres_table_business
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T18:15:50.093337+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T18:15:50.093337+00:00
+[2023-03-20 18:16:03,870] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 18:16:03,945] {dbapi.py:225} INFO - Running statement: 
+            create table if not exists business (
+                business_id text PRIMARY KEY,
+                name text,
+                address text,
+                city text,
+                state text,
+                postal_code text,
+                latitude float,
+                longitude float,
+                stars float,
+                review_count int,
+                is_open int,
+                attributes text,
+                categories text,
+                hours text
+            ) 
+        , parameters: None
+[2023-03-20 18:16:03,950] {postgres.py:71} INFO - NOTICE:  relation "business" already exists, skipping
+
+[2023-03-20 18:16:04,038] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.7, task_id=create_postgres_table_business, execution_date=20230320T181550, start_date=20230320T181603, end_date=20230320T181604
+[2023-03-20 18:16:04,104] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 18:16:04,334] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

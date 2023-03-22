@@ -1,0 +1,38 @@
+[2023-03-20 19:02:11,887] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.9.read_and_load_tip manual__2023-03-20T19:01:39.369448+00:00 [queued]>
+[2023-03-20 19:02:11,924] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.9.read_and_load_tip manual__2023-03-20T19:01:39.369448+00:00 [queued]>
+[2023-03-20 19:02:11,925] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 19:02:11,926] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 19:02:11,927] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 19:02:11,963] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): read_and_load_tip> on 2023-03-20 19:01:39.369448+00:00
+[2023-03-20 19:02:11,967] {standard_task_runner.py:52} INFO - Started process 23045 to run task
+[2023-03-20 19:02:11,974] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.9', 'read_and_load_tip', 'manual__2023-03-20T19:01:39.369448+00:00', '--job-id', '242', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmpeb224c4x', '--error-file', '/tmp/tmphp_z_x55']
+[2023-03-20 19:02:11,977] {standard_task_runner.py:77} INFO - Job 242: Subtask read_and_load_tip
+[2023-03-20 19:02:12,267] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.9.read_and_load_tip manual__2023-03-20T19:01:39.369448+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 19:02:12,577] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.9
+AIRFLOW_CTX_TASK_ID=read_and_load_tip
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T19:01:39.369448+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T19:01:39.369448+00:00
+[2023-03-20 19:02:12,654] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 19:02:12,727] {dbapi.py:225} INFO - Running statement: 
+            CREATE TEMPORARY TABLE temp_tip (
+                user_id text not null,
+                business_id text not null,
+                text text not null,
+                compliment_count int not null,
+                date_values date not null
+            );
+
+            COPY temp_tip FROM '/opt/***/data/output-csv/tip_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
+            INSERT INTO tip (user_id, business_id, text, compliment_count, date_values)
+            SELECT user_id, business_id, text, compliment_count, date_values
+            FROM temp_tip
+            ON CONFLICT (user_id) DO NOTHING;
+        , parameters: None
+[2023-03-20 19:02:15,221] {dbapi.py:233} INFO - Rows affected: 0
+[2023-03-20 19:02:15,324] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.9, task_id=read_and_load_tip, execution_date=20230320T190139, start_date=20230320T190211, end_date=20230320T190215
+[2023-03-20 19:02:15,378] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 19:02:15,608] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

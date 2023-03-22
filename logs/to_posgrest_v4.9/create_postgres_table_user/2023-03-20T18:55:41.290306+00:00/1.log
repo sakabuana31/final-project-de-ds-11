@@ -1,0 +1,39 @@
+[2023-03-20 18:56:00,253] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.9.create_postgres_table_user manual__2023-03-20T18:55:41.290306+00:00 [queued]>
+[2023-03-20 18:56:00,290] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: to_posgrest_v4.9.create_postgres_table_user manual__2023-03-20T18:55:41.290306+00:00 [queued]>
+[2023-03-20 18:56:00,291] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 18:56:00,292] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2023-03-20 18:56:00,293] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-20 18:56:00,332] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): create_postgres_table_user> on 2023-03-20 18:55:41.290306+00:00
+[2023-03-20 18:56:00,336] {standard_task_runner.py:52} INFO - Started process 22638 to run task
+[2023-03-20 18:56:00,343] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'to_posgrest_v4.9', 'create_postgres_table_user', 'manual__2023-03-20T18:55:41.290306+00:00', '--job-id', '222', '--raw', '--subdir', 'DAGS_FOLDER/to_postgresql.py', '--cfg-path', '/tmp/tmp_k4g6fn6', '--error-file', '/tmp/tmpelbu25g1']
+[2023-03-20 18:56:00,346] {standard_task_runner.py:77} INFO - Job 222: Subtask create_postgres_table_user
+[2023-03-20 18:56:00,656] {logging_mixin.py:109} INFO - Running <TaskInstance: to_posgrest_v4.9.create_postgres_table_user manual__2023-03-20T18:55:41.290306+00:00 [running]> on host 0b4cdb459521
+[2023-03-20 18:56:00,964] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=sakabuana31
+AIRFLOW_CTX_DAG_ID=to_posgrest_v4.9
+AIRFLOW_CTX_TASK_ID=create_postgres_table_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-20T18:55:41.290306+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-20T18:55:41.290306+00:00
+[2023-03-20 18:56:01,042] {base.py:79} INFO - Using connection to: id: postgres_localhost. Host: host.docker.internal, Port: 5432, Schema: final, Login: ***, Password: ***, extra: {}
+[2023-03-20 18:56:01,119] {dbapi.py:225} INFO - Running statement: 
+            create table if not exists user1 (
+                user_id text PRIMARY KEY,
+                name text,
+                review_count text,
+                useful int,
+                funny int,
+                cool int,
+                elite text,
+                friends text,
+                fans text,
+                average_stars float,
+                yelping_since_values date
+            ) 
+        , parameters: None
+[2023-03-20 18:56:01,124] {postgres.py:71} INFO - NOTICE:  relation "user1" already exists, skipping
+
+[2023-03-20 18:56:01,264] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=to_posgrest_v4.9, task_id=create_postgres_table_user, execution_date=20230320T185541, start_date=20230320T185600, end_date=20230320T185601
+[2023-03-20 18:56:01,320] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-03-20 18:56:01,550] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

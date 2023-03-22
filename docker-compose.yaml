@@ -57,6 +57,21 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+  # serving:
+  #   image: postgres:15.2
+  #   environment:
+  #     POSTGRES_USER: airflow
+  #     POSTGRES_PASSWORD: airflow
+  #     POSTGRES_DB: serving
+  #   volumes:
+  #     - ./dags:/opt/airflow/dags
+  #     - ./logs:/opt/airflow/logs
+  #     - ./plugins:/opt/airflow/plugins
+  #     - ./data:/opt/airflow/data
+  #     - ./python-script:/opt/airflow/python-script
+  #     - serving-data:/var/lib/postgresql/serving-data
+  #   ports:
+  #     - "5433:5432"
 
   airflow-webserver:
     <<: *airflow-common
@@ -170,3 +185,4 @@ services:
 
 volumes:
   postgres-db-volume:
+  serving-data:

@@ -12,7 +12,7 @@ default_args = {
 
 
 with DAG(
-    dag_id='to_posgrest_v4.6',
+    dag_id='to_posgrest_v4.9',
     default_args=default_args,
     description='Raw to postgress connection',
     start_date=datetime(2023, 3, 18, 2),
@@ -216,6 +216,40 @@ with DAG(
     )
 
     task11 = PostgresOperator(
+        task_id='create_postgres_table_tip',
+        postgres_conn_id='postgres_localhost',
+        sql="""
+            create table if not exists tip (
+                user_id text not null PRIMARY KEY,
+                business_id text not null,
+                text text not null,
+                compliment_count int not null,
+                date_values date not null
+            ) 
+        """
+    )
+
+    task12 = PostgresOperator(
+        task_id='read_and_load_tip',
+        postgres_conn_id='postgres_localhost',
+        sql="""
+            CREATE TEMPORARY TABLE temp_tip (
+                user_id text not null,
+                business_id text not null,
+                text text not null,
+                compliment_count int not null,
+                date_values date not null
+            );
+
+            COPY temp_tip FROM '/opt/airflow/data/output-csv/tip_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
+            INSERT INTO tip (user_id, business_id, text, compliment_count, date_values)
+            SELECT user_id, business_id, text, compliment_count, date_values
+            FROM temp_tip
+            ON CONFLICT (user_id) DO NOTHING;
+        """
+    )
+
+    task13 = PostgresOperator(
         task_id='create_postgres_table_review',
         postgres_conn_id='postgres_localhost',
         sql="""
@@ -233,47 +267,28 @@ with DAG(
         """
     )
 
-    task12 = PostgresOperator(
+    task14 = PostgresOperator(
         task_id='read_and_load_review',
         postgres_conn_id='postgres_localhost',
         sql="""
             CREATE TEMPORARY TABLE temp_review (
-                review_id text PRIMARY KEY,
-                user_id text,
-                business_id text,
-                stars int,
-                useful int,
-                funny int,
-                cool int,
-                text text,
-                date_values date
+                review_id text not null PRIMARY KEY,
+                user_id text not null,
+                business_id text not null,
+                stars int not null,
+                useful int not null,
+                funny int not null,
+                cool int not null,
+                text text not null,
+                date_values date not null
             );
 
-            COPY temp_review FROM '/opt/airflow/data/output-csv/checkin_restaurant1.csv' DELIMITER ',' CSV HEADER;
+            COPY temp_review FROM '/opt/airflow/data/output-csv/review_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
             INSERT INTO review (review_id, user_id, business_id, stars, useful, funny, cool, text, date_values)
-            SELECT DISTINCT ON (review_id) review_id, user_id, business_id, stars, useful, funny, cool, text, date_values
-            FROM temp_review
-            ORDER BY date_values
-            ON CONFLICT (review_id) DO NOTHING;
+            SELECT review_id, user_id, business_id, stars, useful, funny, cool, text, date_values
+            FROM temp_review;
         """
     )    
 
-    task1 >> task2 >> task3 >> task4 >> task5 >> task6 >> task7 >> task8 >> task9 >> task10 >> task11 >> task12
-
-
-    # task2 = PostgresOperator(
-    #     task_id='insert_into_table',
-    #     postgres_conn_id='postgres_localhost',
-    #     sql="""
-    #         insert into dag_runs (dt, dag_id) values ('{{ ds }}', '{{ dag.dag_id }}')
-    #     """
-    # )
-
-    # task3 = PostgresOperator(
-    #     task_id='delete_data_from_table',
-    #     postgres_conn_id='postgres_localhost',
-    #     sql="""
-    # #         delete from dag_runs where dt = '{{ ds }}' and dag_id = '{{ dag.dag_id }}';
-    #     """
-    # )
+    task1 >> task2 >> task3 >> task4 >> task5 >> task6 >> task7 >> task8 >> task9 >> task10 >> task11 >> task12 >> task13 >> task14
     
