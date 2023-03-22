@@ -10,5 +10,4 @@ how to run
 7. runs dags
 
 Ide analisa
-1. rata-rata stars di business_
-2. rata-rata stars ketika normal & bad weather
+1. rata-rata stars di business_name terhadap temperature dan precipitation
