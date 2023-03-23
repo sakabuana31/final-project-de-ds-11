@@ -22,7 +22,7 @@ with DAG(
         task_id='create_postgres_table',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists temperature (
+            create table if not exists dim_temperature (
                 date DATE PRIMARY KEY,
                 min DECIMAL(5, 2),
                 max DECIMAL(5, 2),
@@ -38,7 +38,7 @@ with DAG(
         task_id='read_and_load_temperature',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_temperature (
+            CREATE TEMPORARY TABLE dim_temp_temperature (
                 date DATE PRIMARY KEY,
                 min DECIMAL(5, 2),
                 max DECIMAL(5, 2),
@@ -48,10 +48,10 @@ with DAG(
                 status_temp int
             );
 
-            COPY temp_temperature FROM '/opt/airflow/data/output-csv/dataclean-temperature-lasvegas.csv' DELIMITER ',' CSV HEADER;
-            INSERT INTO temperature (date, min, max, normal_min, normal_max, mean, status_temp)
+            COPY dim_temp_temperature FROM '/opt/airflow/data/output-csv/dataclean-temperature-lasvegas.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO dim_temperature (date, min, max, normal_min, normal_max, mean, status_temp)
             SELECT date, min, max, normal_min, normal_max, mean, status_temp
-            FROM temp_temperature
+            FROM dim_temp_temperature
             ON CONFLICT (date) DO NOTHING;
         """
     )
@@ -60,7 +60,7 @@ with DAG(
         task_id='create_postgres_table_precipitation',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists precipitation (
+            create table if not exists dim_precipitation (
                 date DATE PRIMARY KEY,
                 precipitation DECIMAL(5, 2),
                 precipitation_normal DECIMAL(5, 2),
@@ -73,17 +73,17 @@ with DAG(
         task_id='read_and_load_precipitation',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_precipitation (
+            CREATE TEMPORARY TABLE dim_temp_precipitation (
                 date DATE PRIMARY KEY,
                 precipitation DECIMAL(5, 2),
                 precipitation_normal DECIMAL(5, 2),
                 status_preci int
             );
 
-            COPY temp_precipitation FROM '/opt/airflow/data/output-csv/dataclean-precipitation-lasvegas.csv' DELIMITER ',' CSV HEADER;
-            INSERT INTO precipitation (date, precipitation, precipitation_normal, status_preci)
+            COPY dim_temp_precipitation FROM '/opt/airflow/data/output-csv/dataclean-precipitation-lasvegas.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO dim_precipitation (date, precipitation, precipitation_normal, status_preci)
             SELECT date, precipitation, precipitation_normal, status_preci
-            FROM temp_precipitation
+            FROM dim_temp_precipitation
             ON CONFLICT (date) DO NOTHING;
         """
     )
@@ -92,7 +92,7 @@ with DAG(
         task_id='create_postgres_table_business',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists business (
+            create table if not exists dim_business (
                 business_id text PRIMARY KEY,
                 name text,
                 address text,
@@ -115,7 +115,7 @@ with DAG(
         task_id='read_and_load_business',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_business (
+            CREATE TEMPORARY TABLE dim_temp_business (
                 business_id text PRIMARY KEY,
                 name text,
                 address text,
@@ -132,10 +132,10 @@ with DAG(
                 hours text
             );
 
-            COPY temp_business FROM '/opt/airflow/data/output-csv/business_restaurant.csv' DELIMITER ',' CSV HEADER;
-            INSERT INTO business (business_id, name, address, city, state, postal_code, latitude, stars, review_count, is_open, attributes, categories, hours)
+            COPY dim_temp_business FROM '/opt/airflow/data/output-csv/business_restaurant.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO dim_business (business_id, name, address, city, state, postal_code, latitude, stars, review_count, is_open, attributes, categories, hours)
             SELECT business_id, name, address, city, state, postal_code, latitude, stars, review_count, is_open, attributes, categories, hours
-            FROM temp_business
+            FROM dim_temp_business
             ON CONFLICT (business_id) DO NOTHING;
         """
     )
@@ -144,7 +144,7 @@ with DAG(
         task_id='create_postgres_table_user',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists user1 (
+            create table if not exists dim_user1 (
                 user_id text PRIMARY KEY,
                 name text,
                 review_count text,
@@ -164,7 +164,7 @@ with DAG(
         task_id='read_and_load_user',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_user1 (
+            CREATE TEMPORARY TABLE dim_temp_user1 (
                 user_id text PRIMARY KEY,
                 name text,
                 review_count text,
@@ -178,10 +178,10 @@ with DAG(
                 yelping_since_values date
             );
 
-            COPY temp_user1 FROM '/opt/airflow/data/output-csv/user_restaurant.csv' DELIMITER ',' CSV HEADER;
-            INSERT INTO user1 (user_id, name, review_count, useful, funny, cool, elite, friends, fans, average_stars, yelping_since_values)
+            COPY dim_temp_user1 FROM '/opt/airflow/data/output-csv/user_restaurant.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO dim_user1 (user_id, name, review_count, useful, funny, cool, elite, friends, fans, average_stars, yelping_since_values)
             SELECT user_id, name, review_count, useful, funny, cool, elite, friends, fans, average_stars, yelping_since_values
-            FROM temp_user1
+            FROM dim_temp_user1
             ON CONFLICT (user_id) DO NOTHING;
         """
     )
@@ -190,7 +190,7 @@ with DAG(
         task_id='create_postgres_table_checkin',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists checkin (
+            create table if not exists dim_checkin (
                 business_id text,
                 date_values date PRIMARY KEY
             ) 
@@ -201,15 +201,15 @@ with DAG(
         task_id='read_and_load_checkin',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_checkin (
+            CREATE TEMPORARY TABLE dim_temp_checkin (
                 business_id text,
                 date_values date PRIMARY KEY
             );
 
-            COPY temp_checkin FROM '/opt/airflow/data/output-csv/checkin_restaurant1.csv' DELIMITER ',' CSV HEADER;
-            INSERT INTO checkin (business_id, date_values)
+            COPY dim_temp_checkin FROM '/opt/airflow/data/output-csv/checkin_restaurant1.csv' DELIMITER ',' CSV HEADER;
+            INSERT INTO dim_checkin (business_id, date_values)
             SELECT DISTINCT ON (date_values) business_id, date_values
-            FROM temp_checkin
+            FROM dim_temp_checkin
             ORDER BY date_values
             ON CONFLICT (date_values) DO NOTHING;
         """
@@ -219,7 +219,7 @@ with DAG(
         task_id='create_postgres_table_tip',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists tip (
+            create table if not exists dim_tip (
                 user_id text not null PRIMARY KEY,
                 business_id text not null,
                 text text not null,
@@ -233,7 +233,7 @@ with DAG(
         task_id='read_and_load_tip',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_tip (
+            CREATE TEMPORARY TABLE dim_temp_tip (
                 user_id text not null,
                 business_id text not null,
                 text text not null,
@@ -241,10 +241,10 @@ with DAG(
                 date_values date not null
             );
 
-            COPY temp_tip FROM '/opt/airflow/data/output-csv/tip_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
-            INSERT INTO tip (user_id, business_id, text, compliment_count, date_values)
+            COPY dim_temp_tip FROM '/opt/airflow/data/output-csv/tip_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
+            INSERT INTO dim_tip (user_id, business_id, text, compliment_count, date_values)
             SELECT user_id, business_id, text, compliment_count, date_values
-            FROM temp_tip
+            FROM dim_temp_tip
             ON CONFLICT (user_id) DO NOTHING;
         """
     )
@@ -253,7 +253,7 @@ with DAG(
         task_id='create_postgres_table_review',
         postgres_conn_id='postgres_localhost',
         sql="""
-            create table if not exists review (
+            create table if not exists fact_review (
                 review_id text PRIMARY KEY,
                 user_id text,
                 business_id text,
@@ -271,7 +271,7 @@ with DAG(
         task_id='read_and_load_review',
         postgres_conn_id='postgres_localhost',
         sql="""
-            CREATE TEMPORARY TABLE temp_review (
+            CREATE TEMPORARY TABLE fact_temp_review (
                 review_id text not null PRIMARY KEY,
                 user_id text not null,
                 business_id text not null,
@@ -283,10 +283,10 @@ with DAG(
                 date_values date not null
             );
 
-            COPY temp_review FROM '/opt/airflow/data/output-csv/review_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
-            INSERT INTO review (review_id, user_id, business_id, stars, useful, funny, cool, text, date_values)
+            COPY fact_temp_review FROM '/opt/airflow/data/output-csv/review_restaurant.csv' DELIMITER ',' CSV HEADER NULL 'NA';
+            INSERT INTO fact_review (review_id, user_id, business_id, stars, useful, funny, cool, text, date_values)
             SELECT review_id, user_id, business_id, stars, useful, funny, cool, text, date_values
-            FROM temp_review;
+            FROM fact_temp_review;
         """
     )    
 
